@@ -5,11 +5,22 @@ const {
   GraphQLInt,
   GraphQLList,
   GraphQLObjectType,
-  GraphQLUnionType
+  GraphQLUnionType,
+  GraphQLInterfaceType
 } = require('graphql');
+
+const ResourceInterface = new GraphQLInterfaceType({
+  name: 'IResource',
+  fields: () => ({
+    created: { type: GraphQLString },
+    edited: { type: GraphQLString },
+    url: { type: GraphQLString }
+  })
+});
 
 const PeopleType = new GraphQLObjectType({
   name: 'People',
+  interfaces: [ResourceInterface],
   fields: () => ({
     name: { type: GraphQLString },
     height: { type: GraphQLString },
@@ -32,6 +43,7 @@ const PeopleType = new GraphQLObjectType({
 
 const FilmType = new GraphQLObjectType({
   name: 'Film',
+  interfaces: [ResourceInterface],
   fields: () => ({
     title: { type: GraphQLString },
     episode_id: { type: GraphQLInt },
@@ -52,6 +64,7 @@ const FilmType = new GraphQLObjectType({
 
 const StarshipType = new GraphQLObjectType({
   name: 'Starship',
+  interfaces: [ResourceInterface],
   fields: () => ({
     MGLT: { type: GraphQLString },
     cargo_capacity: { type: GraphQLString },
@@ -76,6 +89,7 @@ const StarshipType = new GraphQLObjectType({
 
 const VehicleType = new GraphQLObjectType({
   name: 'Vehicle',
+  interfaces: [ResourceInterface],
   fields: () => ({
     cargo_capacity: { type: GraphQLString },
     consumables: { type: GraphQLString },
@@ -98,6 +112,7 @@ const VehicleType = new GraphQLObjectType({
 
 const SpeciesType = new GraphQLObjectType({
   name: 'Species',
+  interfaces: [ResourceInterface],
   fields: () => ({
     average_height: { type: GraphQLString },
     average_lifespan: { type: GraphQLString },
@@ -119,6 +134,7 @@ const SpeciesType = new GraphQLObjectType({
 
 const PlanetType = new GraphQLObjectType({
   name: 'Planet',
+  interfaces: [ResourceInterface],
   fields: () => ({
     climate: { type: GraphQLString },
     created: { type: GraphQLString },
