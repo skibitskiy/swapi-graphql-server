@@ -1,0 +1,39 @@
+{
+  "name": "swapi-graphql-middleware-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/app.js",
+    "lint": "eslint ./",
+    "lint-f": "eslint ./ --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "ecmaFeatures": {
+        "impliedStrict": true
+      }
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "no-return-await": 0,
+      "comma-dangle": ["error", "never"]
+    }
+  }
+}
