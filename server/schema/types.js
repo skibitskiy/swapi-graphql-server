@@ -51,7 +51,7 @@ const FilmType = new GraphQLObjectType({
 });
 
 const StarshipType = new GraphQLObjectType({
-  name: 'Starhip',
+  name: 'Starship',
   fields: () => ({
     MGLT: { type: GraphQLString },
     cargo_capacity: { type: GraphQLString },
