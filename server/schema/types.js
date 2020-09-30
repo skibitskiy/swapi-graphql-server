@@ -183,6 +183,7 @@ const ResourceType = new GraphQLUnionType({
 const ResourcesListType = new GraphQLObjectType({
   name: 'Resources',
   fields: {
+    id: { type: GraphQLString },
     count: { type: GraphQLInt },
     next: { type: GraphQLString },
     previous: { type: GraphQLString },

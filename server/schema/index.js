@@ -16,7 +16,9 @@ const Query = new GraphQLObjectType({
       type: ResourcesListType,
       args: { page: { type: GraphQLInt }, resourceType: { type: GraphQLString } },
       async resolve(obj, args) {
-        return await api.fetchResources(args.resourceType, args.page);
+        const response = await api.fetchResources(args.resourceType, args.page);
+        response.id = `${args.resourceType}-${args.page}`;
+        return response;
       }
     },
     getResource: {
