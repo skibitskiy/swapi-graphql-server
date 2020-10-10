@@ -18,7 +18,7 @@ const Query = new GraphQLObjectType({
       async resolve(obj, args) {
         const response = await api.fetchResources(args.resourceType, args.page);
         response.id = `${args.resourceType}-${args.page}`;
-        return response;
+        return response.detail === 'Not found' ? null : response;
       }
     },
     getResource: {
